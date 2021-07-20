@@ -26,6 +26,8 @@ jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
+    env:
+      GCC: arm-none-eabi-gcc
     permissions:
       actions: read
       contents: read
@@ -41,8 +43,11 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
-
+    - uses: actions/checkout@v2
+    - uses: fiam/arm-none-eabi-gcc@v1
+      with:
+        # GNU Embedded Toolchain for Arm release name, in the V-YYYY-qZ format (e.g. "9-2019-q4")
+        release: 9-2019-q4
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
@@ -65,8 +70,8 @@ jobs:
     #    and modify them (or add more) to build your code if your project
     #    uses a compiled language
 
-    #- run: |
-    #   make bootstrap
+    - run: |
+        make
     #   make release
 
     - name: Perform CodeQL Analysis
