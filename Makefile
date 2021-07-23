@@ -83,6 +83,7 @@ INCLUDE = -ISrc/BSP/Components/ampire480272 \
           -I./Src/analyzer/adc \
           -I./Src/analyzer/config \
           -I./Src/analyzer/dsp \
+          -I./Src/analyzer/fftfilters/ \
           -I./Src/analyzer/gen \
           -I./Src/analyzer/lcd/bitmaps \
           -I./Src/analyzer/lcd \
