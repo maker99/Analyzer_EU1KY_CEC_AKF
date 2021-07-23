@@ -600,7 +600,8 @@ void MainWnd(void)
                     MenuSettings();
                     break;
                 case BTN_DSP:
-                    FFTWND_Proc();
+                    //FFTWND_Proc();
+                    AudioDSP_Proc();
                     break;
 
                 case BTN_TRACKER: // S21
