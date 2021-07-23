@@ -147,6 +147,7 @@ SRC :=   Src/analyzer/config/config.c \
         Src/analyzer/uartcomm/bt.c \
         Src/analyzer/uartcomm/shell.c \
         Src/analyzer/uartcomm/nanovna.c \
+        Src/analyzer/window/audiodsp.c \
         Src/analyzer/window/fftwnd.c \
         Src/analyzer/window/generator.c \
         Src/analyzer/window/keyboard.c \
