@@ -54,36 +54,38 @@ DEFINE = -DSTM32F746xx \
          -DLODEPNG_NO_COMPILE_ANCILLARY_CHUNKS \
          -DLODEPNG_NO_COMPILE_DECODER
 
-INCLUDE = -ISrc/BSP/Components/ampire480272 \
-          -ISrc/BSP/Components/ampire640480 \
-          -ISrc/BSP/Components/Common \
-          -ISrc/BSP/Components/exc7200 \
-          -ISrc/BSP/Components/ft5336 \
-          -ISrc/BSP/Components/mfxstm32l152 \
-          -ISrc/BSP/Components/n25q128a \
-          -ISrc/BSP/Components/n25q512a \
-          -ISrc/BSP/Components/ov9655 \
-          -ISrc/BSP/Components/rk043fn48h \
-          -ISrc/BSP/Components/s5k5cag \
-          -ISrc/BSP/Components/stmpe811 \
-          -ISrc/BSP/Components/ts3510 \
-          -ISrc/BSP/Components/wm8994 \
-          -ISrc/BSP/STM32746G-Discovery \
-          -ISrc/CMSIS/Device/ST/STM32F7xx/Include \
-          -ISrc/CMSIS/Include -ISrc/Inc \
-          -ISrc/STM32F7xx_HAL_Driver/Inc \
-          -ISrc/Utilities/Fonts \
-          -ISrc/STM32F7xx_HAL_Driver/Inc/Legacy \
-          -ISrc/fatfs -ISrc/fatfs/drivers \
-          -ISrc/config \
-          -ISrc/gen \
-          -ISrc/dsp \
-          -ISrc/USBD \
-          -ISrc/uartcomm \
+INCLUDE = -I./Src/BSP/Components/ampire480272 \
+          -I./Src/BSP/Components/ampire640480 \
+          -I./Src/BSP/Components/Common \
+          -I./Src/BSP/Components/exc7200 \
+          -I./Src/BSP/Components/ft5336 \
+          -I./Src/BSP/Components/mfxstm32l152 \
+          -I./Src/BSP/Components/n25q128a \
+          -I./Src/BSP/Components/n25q512a \
+          -I./Src/BSP/Components/ov9655 \
+          -I./Src/BSP/Components/rk043fn48h \
+          -I./Src/BSP/Components/s5k5cag \
+          -I./Src/BSP/Components/stmpe811 \
+          -I./Src/BSP/Components/ts3510 \
+          -I./Src/BSP/Components/wm8994 \
+          -I./Src/BSP/STM32746G-Discovery \
+          -I./Src/CMSIS/Device/ST/STM32F7xx/Include \
+          -I./Src/CMSIS/Include \
+          -I./Src/Inc \
+          -I./Src/STM32F7xx_HAL_Driver/Inc \
+          -I./Src/Utilities/Fonts \
+          -I./Src/STM32F7xx_HAL_Driver/Inc/Legacy \
+          -I./Src/fatfs \
+          -I./Src/fatfs/drivers \
+          -I./Src/config \
+          -I./Src/gen \
+          -I./Src/dsp \
+          -I./Src/USBD \
+          -I./Src/uartcomm \
           -I./Src/analyzer/adc \
           -I./Src/analyzer/config \
           -I./Src/analyzer/dsp \
-          -I./Src/analyzer/fftfilters/ \
+          -I./Src/analyzer/fftfilters \
           -I./Src/analyzer/gen \
           -I./Src/analyzer/lcd/bitmaps \
           -I./Src/analyzer/lcd \
@@ -114,7 +116,7 @@ INCLUDE = -ISrc/BSP/Components/ampire480272 \
           -I./Src/STM32F7xx_HAL_Driver/Inc \
           -I./Src/USBD
 
-SRC :=   Src/analyzer/config/config.c \
+SRC :=  Src/analyzer/config/config.c \
         Src/analyzer/dsp/dsp.c \
         Src/analyzer/dsp/audioirq.c \
         Src/analyzer/gen/adf4350.c \
@@ -190,6 +192,11 @@ SRC :=   Src/analyzer/config/config.c \
         Src/BSP/STM32746G-Discovery/stm32746g_discovery_ts.c \
         Src/CMSIS/DSP_Lib/Source/CommonTables/arm_common_tables.c \
         Src/CMSIS/DSP_Lib/Source/CommonTables/arm_const_structs.c \
+        Src/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_f32.c \
+        Src/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_f32.c \
+        Src/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_init_f32.c \
+        Src/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q15.c \
+        Src/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_float.c \
         Src/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_f32.c \
         Src/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix8_f32.c \
         Src/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_fast_f32.c \

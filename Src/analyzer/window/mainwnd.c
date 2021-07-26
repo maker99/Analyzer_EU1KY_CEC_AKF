@@ -588,7 +588,8 @@ void MainWnd(void)
                     Reload_Proc();
                     break;
                 case BTN_USB:
-                    USBD_Proc();
+                    // USBD_Proc();
+                    RecPlayAudio_Proc();
                     break;
 
                 case BTN_LC:
@@ -600,7 +601,7 @@ void MainWnd(void)
                     MenuSettings();
                     break;
                 case BTN_DSP:
-                    //FFTWND_Proc();
+                    // FFTWND_Proc();
                     AudioDSP_Proc();
                     break;
 

@@ -195,15 +195,15 @@ int filterApplyFreq2    = 200;  //HPF           //9~12
 int userFilterHalfWidth = 100;                  //13~16
 */
 
-static char g_dsp_data[20] = {0};
-uint8_t *DSP_OUT_VOL = &g_dsp_data[0];             //0
-uint8_t *isTmpMute = &g_dsp_data[1];               //1
-uint8_t *nowSelectedFilter = &g_dsp_data[2];       //2
-uint8_t *nowBPFFilterIndex = &g_dsp_data[3];       //              //3
-uint8_t *filterType = &g_dsp_data[4];              //4
-int *filterApplyFreq1 = (int *)&g_dsp_data[5];     //5~8
-int *filterApplyFreq2 = (int *)&g_dsp_data[9];     //HPF           //9~12
-int *userFilterHalfWidth = (int *)&g_dsp_data[13]; //13~16
+static char g_dsp_data[20]    = {0};
+uint8_t *DSP_OUT_VOL          = (uint8_t *) &g_dsp_data[0];  //0
+uint8_t *isTmpMute            = (uint8_t *) &g_dsp_data[1];  //1
+uint8_t *nowSelectedFilter    = (uint8_t *) &g_dsp_data[2];  //2
+uint8_t *nowBPFFilterIndex    = (uint8_t *) &g_dsp_data[3];  //3
+uint8_t *filterType           = (uint8_t *) &g_dsp_data[4];  //4
+int     *filterApplyFreq1     = (int *)     &g_dsp_data[5];  //5~8
+int     *filterApplyFreq2     = (int *)     &g_dsp_data[9];  //HPF 9~12
+int     *userFilterHalfWidth  = (int *)     &g_dsp_data[13]; //13~16
 
 #include "ff.h"
 #include "crash.h"
@@ -267,7 +267,7 @@ void DSP_LoadInformation(void)
 
 void dspMenuDraw(void)
 {
-    uint32_t LCSaveColor = TextColor;
+    // uint32_t LCSaveColor = TextColor;
 
     //Bottom Menu
     LCD_DrawBitmap(LCD_MakePoint(dspMenus[MENU_EXIT][BUTTON_LEFT], dspMenus[MENU_EXIT][BUTTON_TOP]), imgbtn_home2, imgbtn_home2_size);
@@ -420,6 +420,8 @@ void ApplyCoeffs(uint32_t targetFreq)
 
     for (int i = 0; i < 30; i++)
     {
+        y1 = y2 = y3 = 0.0; 
+
         if (*filterType == DSP_FILTER_BPF_50)
         {
             y1 = FLT_BPF_50[baseIndex - 1][i];
@@ -856,7 +858,7 @@ void SetNewFreqByTouch(int newFreq, int isCenter, arm_biquad_cascade_df2T_instan
 
 void AudioDSP_Proc(void)
 {
-    int checkCount = 0; //Check Measure Interval
+    // int checkCount = 0; //Check Measure Interval
     LCDPoint pt;
 
     SetColours();
